@@ -97,6 +97,7 @@ def main():
     plotter = Plotter()
     print('read polygon.csv')
     polygon = []
+    # Empty container for points
     with open('polygon.csv', 'r') as polygon_file:
         polygon_file.readline()
         for line in polygon_file:

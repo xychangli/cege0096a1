@@ -114,11 +114,13 @@ with open('polygon.csv', 'r') as polygon_file:
         polygon_line = list(map(float, polygon_line))
         polygon.append(polygon_line)
 
+# Get the coordinates for each status
 outside = is_point_in_polygon(point, polygon)[0]
 inside = is_point_in_polygon(point, polygon)[1]
 boundary = is_point_in_polygon(point, polygon)[2]
 mbr = get_mbr(polygon)
 
+# Create containers
 polygon_x = []
 polygon_y = []
 outside_x = []
@@ -130,6 +132,7 @@ boundary_y = []
 mbr_x = []
 mbr_y = []
 
+# Prepare the X Y coordinates for the plotter
 for i in range(len(polygon)):
     polygon_x.append(polygon[i][0])
     polygon_y.append(polygon[i][1])
@@ -150,6 +153,7 @@ for i in range(len(mbr)):
     mbr_x.append(mbr[i][0])
     mbr_y.append(mbr[i][1])
 
+# Plot
 print('Outside:', len(outside), 'Inside:', len(inside), 'Boundary:', len(boundary))
 plotter = Plotter()
 plotter.add_polygon(polygon_x, polygon_y)
