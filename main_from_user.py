@@ -122,19 +122,27 @@ def main():
         print('boundary')
 
     print('plot polygon and point')
+    mbr = get_mbr(polygon)
     polygon_x = []
     polygon_y = []
     point_x = []
     point_y = []
+    mbr_x = []
+    mbr_y = []
+
     for i in range(len(polygon)):
         polygon_x.append(polygon[i][0])
         polygon_y.append(polygon[i][1])
     for i in range(len(point)):
         point_x.append(point[i][0])
         point_y.append(point[i][1])
+    for i in range(len(mbr)):
+        mbr_x.append(mbr[i][0])
+        mbr_y.append(mbr[i][1])
 
 
     plotter.add_polygon(polygon_x, polygon_y)
+    plotter.add_line(mbr_x, mbr_y)
     plotter.add_point(point_x, point_y)
     plotter.show()
 
